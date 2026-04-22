@@ -12,8 +12,12 @@ https://gerenciador-de-tarefas-0qta.onrender.com
 
 ### Clonar repositorio
 
-https://github.com/nawarakk/Gerenciador-de-tarefas.git
-
+```bash
+git clone https://github.com/nawarakk/Gerenciador-de-tarefas.git
+```
+```bash
+cd Gerenciador-de-tarefas
+```
 ### Instalar dependências
 
 ```bash
@@ -22,7 +26,7 @@ npm i
 
 ### Rodar migrations
 ```bash
-npm run migratei
+npm run migrate
 ```
 
 ### Iniciar projeto
@@ -65,7 +69,7 @@ POST `/sessions`
 
 ---
 
-### Time - Precisa do token de autorização
+### Time
 
 POST `/teams`
 
@@ -81,7 +85,7 @@ GET `/teams`
 
 <br>
 
-PATCH `/teams/(team_id)`
+PATCH `/teams/:team_id`
 
 ```json
 {
@@ -91,13 +95,13 @@ PATCH `/teams/(team_id)`
 ```
 <br>
 
-DELETE `/teams/(team_id)`
+DELETE `/teams/:team_id`
 
 <br>
 
 ---
 
-### Membros do time - Precisa do token de autorização
+### Membros do time
 
 POST `/team-members`
 
@@ -114,7 +118,7 @@ GET `/team-members`
 
 <br>
 
-DELETE `/team-members/(teamMember_id)`
+DELETE `/team-members/:teamMember_id`
 
 <br>
 
@@ -126,8 +130,8 @@ POST `/task`
 ```json
 {
     "title": "Título",
-    "description": "Descrição"
-    "user_id": "1"
+    "description": "Descrição",
+    "user_id": "1",
     "team_id": "1"
 }
 ```
@@ -138,7 +142,7 @@ GET `/task`
 
 <br>
 
-PATCH `/task/(task_id)`
+PATCH `/task/:task_id`
 ```json
 {
     "title": "Título",
@@ -148,18 +152,18 @@ PATCH `/task/(task_id)`
 
 <br>
 
-GET `/task/status/(status)`
+GET `/task/status/:status`
 
 <br>
 
-GET `/task/priority/(priority)`
+GET `/task/priority/:priority`
 
 <br>
 
-PATCH `/task/assing/(task_id)`
+PATCH `/task/assign/:task_id`
 ```json
 {
-    "user_id": "1"
+    "user_id": "1",
     "team_id": "1"
 }
 ```
@@ -170,11 +174,11 @@ PATCH `/task/assing/(task_id)`
 
 ### Histórico de Status
 
-GET `/tasks-history/(task_id)`
+GET `/tasks-history/:task_id`
 
 <br>
 
-PATCH  `/tasks-history/(task_id)`
+PATCH  `/tasks-history/:task_id`
 ```json
 {
     "status": "pending"
